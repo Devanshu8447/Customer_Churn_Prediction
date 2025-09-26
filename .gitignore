@@ -1,0 +1,96 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Flask instance folder
+instance/
+
+# Flask static files cache
+static/__pycache__/
+
+# Django stuff (if any)
+*.log
+local_settings.py
+
+# env files, virtual environments
+.env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# VS Code settings
+.vscode/
+
+# PyCharm IDE files
+.idea/
+
+# Mac OS files
+.DS_Store
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Tensorflow checkpoints and logs
+checkpoint
+events.out.tfevents.*
+
+# Models (ignore if you want to version control model weights, otherwise include)
+*.h5
+*.joblib
+
+# Ignore node_modules if you have any frontend build tools (optional)
+node_modules/
+
+# Ignore coverage reports
+.coverage
+

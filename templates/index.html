@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customer Churn Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 to-purple-300 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+        <h2 class="text-3xl font-bold mb-6 text-center text-indigo-700">Customer Churn Prediction</h2>
+
+        <form method="POST" class="space-y-4">
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Credit Score</label>
+                <input type="number" name="credit_score" min="300" max="850" value="650" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Age</label>
+                <input type="number" name="age" min="18" max="100" value="40" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Tenure (years)</label>
+                <input type="number" name="tenure" min="0" max="10" value="3" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Balance</label>
+                <input type="number" name="balance" step="0.01" value="50000" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Number of Products</label>
+                <select name="num_of_products"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="has_cr_card" value="1" checked
+                        class="rounded focus:ring-indigo-400 focus:ring-2" />
+                    <span>Has Credit Card</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="is_active_member" value="1" checked
+                        class="rounded focus:ring-indigo-400 focus:ring-2" />
+                    <span>Is Active Member</span>
+                </label>
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Estimated Salary</label>
+                <input type="number" name="estimated_salary" step="0.01" value="50000" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Geography</label>
+                <select name="geography"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <option value="France" selected>France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Spain">Spain</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Gender</label>
+                <select name="gender"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <option value="Female" selected>Female</option>
+                    <option value="Male">Male</option>
+                </select>
+            </div>
+
+            <div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-md font-semibold transition">
+                    Predict Churn
+                </button>
+            </div>
+        </form>
+
+        {% if result is not none %}
+        <div class="mt-6 p-4 rounded-md 
+            {% if result %}bg-red-100 text-red-800{% else %}bg-green-100 text-green-800{% endif %}">
+            <h3 class="text-lg font-semibold mb-2">Prediction Result</h3>
+            <p>Churn Probability: <strong>{{ churn_prob }}</strong></p>
+            {% if result %}
+            <p>Customer is likely to churn.</p>
+            {% else %}
+            <p>Customer is unlikely to churn.</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
